@@ -123,14 +123,14 @@ const completeOrderFunc1 = (customer) => {
 /**
  ** async-await
  */
-function helloWorld() {
-  return Promise.resolve("Hello !");
-};
-async function helloWorld2() {
-  return "Hello !";
-};
-console.log(helloWorld());
-console.log(helloWorld2());
+// function helloWorld() {
+//   return Promise.resolve("Hello !");
+// };
+// async function helloWorld2() {
+//   return "Hello !";
+// };
+// console.log(helloWorld());
+// console.log(helloWorld2());
 // both of them are returning the promise 
 
 
@@ -139,9 +139,18 @@ console.log(helloWorld2());
 
 
 
+// main problem
+async function sleep(millis)  {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve();
+    }, millis);
+  });
+};
 
-
-
+let t = Date.now();
+sleep(100)
+  .then(() => console.log(Date.now() - t));
 
 
 
