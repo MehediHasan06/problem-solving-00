@@ -65,23 +65,23 @@ console.log("Serve the order for the customer1.");
  ** Promise -------------------------------------
 */
 //If JS get a promise, then it pushes it to the webAPI's and then callback queue. Then event loop monitor the call stack and when the call stack becomes empty it pushes the codes to the call stack.
-let hasMeeting = false;
-const meeting = new Promise((resolve,reject) => {
-  if(!hasMeeting){
-    const meetingDetails = {
-      name: "standup",
-      via: "g-meet",
-      time: "3:00 PM"
-    };
-    resolve(meetingDetails);
-  } else {
-    reject(new error("No meeting !"));
-  };
-});
-const meetingSchedule = (meetingDetails) => {
-  const calendar = `${meetingDetails.name} will be at ${meetingDetails.time}`;
-  return Promise.resolve(calendar);
-}
+// let hasMeeting = false;
+// const meeting = new Promise((resolve,reject) => {
+//   if(!hasMeeting){
+//     const meetingDetails = {
+//       name: "standup",
+//       via: "g-meet",
+//       time: "3:00 PM"
+//     };
+//     resolve(meetingDetails);
+//   } else {
+//     reject(new error("No meeting !"));
+//   };
+// });
+// const meetingSchedule = (meetingDetails) => {
+//   const calendar = `${meetingDetails.name} will be at ${meetingDetails.time}`;
+//   return Promise.resolve(calendar);
+// }
 
 // meeting
 //   .then(meetingSchedule)
@@ -121,36 +121,44 @@ const completeOrderFunc1 = (customer) => {
 
 // it's not also readable for big program. Lot's of then and condition flow.
 /**
- ** async-await
+ ** async-await ---------------------------------------------------
  */
-// function helloWorld() {
-//   return Promise.resolve("Hello !");
-// };
-// async function helloWorld2() {
-//   return "Hello !";
-// };
-// console.log(helloWorld());
-// console.log(helloWorld2());
+function helloWorld() {
+  return Promise.resolve("Hello !");
+};
+async function helloWorld2() {
+  return "Hello !";
+};
+console.log(helloWorld());
+console.log(helloWorld2());
 // both of them are returning the promise 
 
 
+let hasMeeting = false;
+const meeting = new Promise((resolve,reject) => {
+  if(!hasMeeting){
+    const meetingDetails = {
+      name: "standup",
+      via: "g-meet",
+      time: "3:00 PM"
+    };
+    resolve(meetingDetails);
+  } else {
+    reject(new error("No meeting !"));
+  };
+});
+const meetingSchedule = (meetingDetails) => {
+  const calendar = `${meetingDetails.name} will be at ${meetingDetails.time}`;
+  return Promise.resolve(calendar);
+}
 
 
 
 
 
-// main problem
-async function sleep(millis)  {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve();
-    }, millis);
-  });
-};
 
-let t = Date.now();
-sleep(100)
-  .then(() => console.log(Date.now() - t));
+
+
 
 
 
