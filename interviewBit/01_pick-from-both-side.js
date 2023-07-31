@@ -1,3 +1,7 @@
+/**
+ * Problem link - https://www.interviewbit.com/problems/pick-from-both-sides/ 
+ */
+
 let A = [5, -2, 3 , 1, 2];
 let B = 3;
 
