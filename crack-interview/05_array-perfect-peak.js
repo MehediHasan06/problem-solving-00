@@ -36,6 +36,47 @@ let A = [5, 1, 4, 3, 6, 8, 10, 7, 9];
 // 
 
 /**
- * * 2nd Approach
+ * * 2nd Approach -> 
+ * First, we'll make 2 array from A[] - max-left[] and min-right[].
+ * max-left[] -> for every index in A[], we'll check the max value from it's left. Traversing from left
+ * min-right[] -> for every index in A[], we'll check the min value from it's right. Traversing from right.
+ * A=          [5,1,4,3,6,8,10,7,9];
+ * max-left=   [5,5,5,5,6,8,10,10,10];
+ * min-right=  [1,1,3,3,6,7,7,7,9];
+ * 
+ * Now, for every index value A[i], 
+ *      -> it has to be `bigger` than from this position to left in max-left (max-left[i-1])
+ *      -> it has to be `smaller` than from this position to right in min-right (min-right[i+1])
 */
+
+let maxLeft=[A[0]];
+let minRight=Array(A.length-1).fill(0);
+minRight[A.length-1] = A[A.length-1];
+
+//making the maxLeft array ->
+for(let i=1; i<A.length; i++){
+  if(maxLeft[i-1]>A[i]){
+    maxLeft.push(maxLeft[i-1]);
+  } else {
+    maxLeft.push(A[i])
+  }
+};
+
+//making the minRight array ->
+for(let i=A.length-2; i>=0; i--){
+  if(A[i]<minRight[i+1]){
+    minRight[i]=A[i];
+  }else{
+    minRight[i]=minRight[i+1]
+  }
+};
+
+for(let i=1; i<A.length-1; i++){
+  if(A[i]>maxLeft[i-1] && A[i]<minRight[i+1]){
+    console.log("Got the perfect peak ->");
+    return 1;
+  }
+};
+
+return 0;
 
