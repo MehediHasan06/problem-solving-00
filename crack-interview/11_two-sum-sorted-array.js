@@ -9,14 +9,18 @@
  * 3. keep in mind that, it's 1 based index system. So, keep that is mind while returning the 
 */
 
-// let numbers = [2,7,11,15];
+let numbers = [2,7,11,15];
 // let numbers = [2,3,4];
-let numbers = [-1,0];
+// let numbers = [-1,0];
 
-// let target = 9;
+let target = 9;
 // let target = 6;
-let target = -1;
+// let target = -1;
 
+/**
+ * * 1st approach -->
+*/
+/*
 if(numbers[0]+numbers[numbers.length-1] > target){
   console.log("first and last sum bigger than the target.");
   for(let i=0,j=numbers.length-2; j>i ;j--){
@@ -38,6 +42,24 @@ if(numbers[0]+numbers[numbers.length-1] > target){
 } else {
   console.log("got the target at first")
   console.log(1,numbers.length)
+}
+*/
+
+/**
+ * * 2nd approach --> more compact solution than first one
+*/
+
+for(let i=0,j=numbers.length-1; i<j; ){
+  if(numbers[i]+numbers[j] === target){
+    console.log([i+1, j+1]);
+    break;
+  } else if(numbers[0]+numbers[numbers.length-1] > target){
+    console.log("got here ", i,j);
+    j--;
+  } else {
+    console.log("got here else -", i,j);
+    i++
+  }
 }
 
 
