@@ -17,6 +17,7 @@ let n=`3
 
 const flippingBits = (n) => {
   let flippedArray = [];
+  //modifying input numbers and put them into an array
   let numArr = n.split("\n").map(item => parseInt(item));
 
   for(let i=1; i<numArr.length; i++){
