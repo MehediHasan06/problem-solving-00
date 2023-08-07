@@ -4,6 +4,10 @@
     Given a string s, return true if it is a palindrome, or false otherwise.
 */
 
+/**
+ * * I've solved this problem using `two pointer` method
+ */
+
 let s = "A man, a plan, a canal: Panama";
 
 //the \W special character to shorten regex and remove all non-alphanumeric characters from a string.
