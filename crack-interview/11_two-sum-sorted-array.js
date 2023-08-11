@@ -49,28 +49,33 @@ if(numbers[0]+numbers[numbers.length-1] > target){
  * * 2nd approach --> more compact solution than first one
 */
 
-for(let i=0,j=numbers.length-1; i<j; ){
-  if(numbers[i]+numbers[j] === target){
-    console.log([i+1, j+1]);
-    break;
-  } else if(numbers[0]+numbers[numbers.length-1] > target){
-    console.log("got here ", i,j);
-    j--;
-  } else {
-    console.log("got here else -", i,j);
-    i++
-  }
-}
+// for(let i=0,j=numbers.length-1; i<j; ){
+//   if(numbers[i]+numbers[j] === target){
+//     console.log([i+1, j+1]);
+//     break;
+//   } else if(numbers[0]+numbers[numbers.length-1] > target){
+//     console.log("got here ", i,j);
+//     j--;
+//   } else {
+//     console.log("got here else -", i,j);
+//     i++
+//   }
+// }
 
 
 /**
  * * Bruteforce method to solve -->
+ * this question can be appear like this too - Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 */
 
-for(let i=0; i<numbers.length; i++){
-  for(let j=1; j<numbers.length; j++){
-    if(numbers[i]+numbers[j] === target){
-      //solution
+const addToTarget = (numArr, target) => {
+  for(let i=0; i<numArr.length; i++){
+    for(let j=1; j<numArr.length; j++){
+      if(numArr[i]+numArr[j] === target){
+        return [i,j];
+      }
     }
   }
-}
+};
+console.log(addToTarget([3,3],6));
+// time complexity - O(n^2) and space complexity - O(1)
