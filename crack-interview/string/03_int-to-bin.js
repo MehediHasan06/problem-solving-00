@@ -1,5 +1,11 @@
 /**
  * convert integer to binary
+ * Steps:
+ * 10%2=0 | 10/2=5
+ * 5%2=1 | 5/2=2
+ * 2%2=0 | 2/2=1
+ * 1%2=1 | 1/2=0
+ * So, the loop will run until the Quotient will be 0. The binary will be counted via backwards. like the binary of 10 is 1010
 */
 
 let intNum = 10;
