@@ -16,6 +16,7 @@
  *                                    
  ** base case - if(start>=end) return list[end]
  * 
+ * Time complexity of loop and recursion are same. Except some complex case
 */
 
 const findMax = (list,start,end) => {
